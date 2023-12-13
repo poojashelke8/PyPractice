@@ -110,6 +110,18 @@ class DLinkedList:
             n = n.next
         n.prev.next = None
 
+    def reverse_list(self):
+        temp = None
+        current = self.head
+        while current is not None:
+            temp = current.prev
+            current.prev = current.next
+            current.next = temp
+            current = current.prev
+        
+        if temp:
+            self.head = temp.prev
+
 
 
 
@@ -128,6 +140,9 @@ new_linkedList.insert_before_ele(50,100)
 new_linkedList.delete_start()
 # new_linkedList.traversing()
 new_linkedList.delete_at_end()
+new_linkedList.traversing()
+new_linkedList.reverse_list()
+print("After Reverse")
 new_linkedList.traversing()
 
    

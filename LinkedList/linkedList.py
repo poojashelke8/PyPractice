@@ -85,6 +85,16 @@ class LinkedList:
         for data in data_list:
             self.insert_at_end(data)
 
+    def reverse_list(self):
+        prev = None
+        n = self.head
+        while n is not None:
+            Next = n.next
+            n.next = prev
+            prev = n
+            n = Next
+        self.head = prev
+
 if __name__ == '__main__':
     ll = LinkedList()
     ll.insert_values(["banana","mango","grapes","orange"])
@@ -94,4 +104,6 @@ if __name__ == '__main__':
 
     ll.insert_values([45,7,12,567,99])
     ll.insert_at_end(67)
+    ll.print()
+    ll.reverse_list()
     ll.print()
